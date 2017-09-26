@@ -21,14 +21,8 @@ class Calculator ():
         return int(oper1)/int(oper2)
 
 #If   this is executed on his own, do this:
-if __name__ == "__main__":
-    try:
-        operand1 = int(sys.argv[1])
-        operand2 = int(sys.argv[3])
-    except ValueError:
-        sys.exit('Error: operands must be integer numbers')
 
-    calc = Calculator()
+def Operate():
 
     if sys.argv[2] == 'plus':
         result = calc.plus(sys.argv[1],sys.argv[3])
@@ -39,5 +33,28 @@ if __name__ == "__main__":
     elif sys.argv[2] == 'divided':
         result = calc.divided(sys.argv[1],sys.argv[3])
     else:
+        print()
         sys.exit('Error: Only Add, Substract, Multiply or Divide operations are allowed')
-    print(result)
+    return result
+
+
+
+if __name__ == "__main__":
+
+    print()
+    print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
+    print('//----Simple calculator program')
+    print()
+    print('Input operand was: ' + str(sys.argv[2]) + ' and operands were: ' + str(sys.argv[1]) + ' and ' + str(sys.argv[3]))
+    try:
+        operand1 = int(sys.argv[1])
+        operand2 = int(sys.argv[3])
+    except ValueError:
+        print()
+        sys.exit('Error: operands must be integer numbers')
+
+    calc = Calculator()
+    result = Operate()
+    print()
+    print('Result is: ' + str(result))
+    print()
