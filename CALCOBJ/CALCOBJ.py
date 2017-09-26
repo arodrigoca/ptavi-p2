@@ -14,6 +14,12 @@ class Calculator ():
     def minus(self, oper1, oper2):
         return int(oper1) - int(oper2)
 
+    def times(self, oper1, oper2):
+        return int(oper1)*int(oper2)
+
+    def divided(self, oper1, oper2):
+        return int(oper1)/int(oper2)
+
 #If   this is executed on his own, do this:
 if __name__ == "__main__":
     try:
@@ -28,6 +34,10 @@ if __name__ == "__main__":
         result = calc.plus(sys.argv[1],sys.argv[3])
     elif sys.argv[2] == 'minus':
         result = calc.minus(sys.argv[1],sys.argv[3])
+    elif sys.argv[2] == 'times':
+        result = calc.times(sys.argv[1],sys.argv[3])
+    elif sys.argv[2] == 'divided':
+        result = calc.divided(sys.argv[1],sys.argv[3])
     else:
-        sys.exit('Only Add or Substract operations are allowed')
+        sys.exit('Error: Only Add, Substract, Multiply or Divide operations are allowed')
     print(result)
