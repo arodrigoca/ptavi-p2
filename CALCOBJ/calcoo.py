@@ -18,13 +18,13 @@ class Calculator ():
 
 def Operate():
 
-    if sys.argv[2] == 'plus':
+    if sys.argv[2] == 'suma':
         result = calc.plus(sys.argv[1],sys.argv[3])
-    elif sys.argv[2] == 'minus':
+    elif sys.argv[2] == 'resta':
         result = calc.minus(sys.argv[1],sys.argv[3])
     else:
         print()
-        sys.exit('Error: Only Add or Substract operations are allowed')
+        sys.exit('Error: Only Suma or Resta operations are allowed')
     return result
 
 

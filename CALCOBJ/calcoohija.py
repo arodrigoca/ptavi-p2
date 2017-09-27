@@ -30,13 +30,13 @@ class CalculadoraHija(Calculator):
 
 def Operate():
 
-    if sys.argv[2] == 'plus':
+    if sys.argv[2] == 'suma':
         result = calc.plus(sys.argv[1],sys.argv[3])
-    elif sys.argv[2] == 'minus':
+    elif sys.argv[2] == 'resta':
         result = calc.minus(sys.argv[1],sys.argv[3])
-    elif sys.argv[2] == 'times':
+    elif sys.argv[2] == 'multiplica':
         result = calc.times(sys.argv[1],sys.argv[3])
-    elif sys.argv[2] == 'divided':
+    elif sys.argv[2] == 'divide':
         result = calc.divided(sys.argv[1],sys.argv[3])
     else:
         print()
