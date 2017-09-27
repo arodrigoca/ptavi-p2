@@ -35,7 +35,7 @@ if __name__ == "__main__":
     print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
     print('//----Simple calculator program')
     print()
-    print('Input operand was: ' + str(sys.argv[2]) + ' and operands were: ' + str(sys.argv[1]) + ' and ' + str(sys.argv[3]))
+    print('Input operator was: ' + str(sys.argv[2]) + ' and operands were: ' + str(sys.argv[1]) + ' and ' + str(sys.argv[3]))
     try:
         operand1 = int(sys.argv[1])
         operand2 = int(sys.argv[3])
