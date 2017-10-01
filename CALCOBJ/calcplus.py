@@ -58,12 +58,22 @@ def operateLine(calc):
 
         line = getData()
         for w in range(1,len(line)):
-            if w < len(line):
-                x = line[0]
-                y = line[1]
-                z = line[2]
-                result = Operations(x, y, z, calc)
-                print("wee")
+            if w + 1 < len(line):
+                if w == 1:    
+                    opr = line[0]
+                    op1 = line[w]
+                    op2 = line[w+1]
+                    print("first operation I do: ", opr,op1,op2)
+                    result = Operations(opr, op1, op2, calc)
+                    print("and result is: ", result)
+
+                else:
+                    op2 = line[w+1]
+                    print("I do: ", opr, result, op2)
+                    result = Operations(opr, result, op2, calc)
+                    print("and result is: ", result)
+
+        return result
 
 
 
@@ -75,20 +85,9 @@ if __name__ == "__main__":
         print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
         print('//----Simple calculator program')
         print()
-        print('Input operator was: ' + str(sys.argv[2]) + ' and operands were: ' + str(sys.argv[1]) + ' and ' + str(sys.argv[3]))
-        try:
-            operand1 = int(sys.argv[1])
-            operand2 = int(sys.argv[3])
-        except ValueError:
-            print()
-            sys.exit('Error: operands must be integer numbers')
-
-        opr = sys.argv[2]
-        op1 = int(sys.argv[1])
-        op2 = int(sys.argv[3])
         calc = CalculadoraHija()
-        operateLine(calc)
-        result = Operations(opr, op1, op2, calc)
+        goodResult = operateLine(calc)
         print()
-        print('Result is: ' + str(result))
+        print('Result is: ', goodResult)
+        print()
         print()

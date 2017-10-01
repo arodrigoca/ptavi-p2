@@ -1,2 +1,2 @@
-suma,1,2,3
+multiplica,1,4,3,10,5,6,6
 resta,3,4,5
