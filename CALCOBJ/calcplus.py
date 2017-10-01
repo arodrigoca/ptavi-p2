@@ -45,7 +45,7 @@ def Operations(opr, op1, op2, calc):
 
 
 
-def getData():
+def getLine():
 
     data = text.readline()
     data = data.rstrip('\n')
@@ -56,38 +56,52 @@ def getData():
 
 def operateLine(calc):
 
-        line = getData()
+    line = getLine()
+    if line[0] != '':
         for w in range(1,len(line)):
             if w + 1 < len(line):
                 if w == 1:    
                     opr = line[0]
                     op1 = line[w]
                     op2 = line[w+1]
-                    print("first operation I do: ", opr,op1,op2)
                     result = Operations(opr, op1, op2, calc)
-                    print("and result is: ", result)
-
                 else:
                     op2 = line[w+1]
-                    print("I do: ", opr, result, op2)
                     result = Operations(opr, result, op2, calc)
-                    print("and result is: ", result)
+        end = False
+    else:
+        end = True;
+        result = None
 
-        return result
+    return (result, end)
 
+def operateFile(calc):
 
+    end = False
+    results = []
 
+    while end == False:
+        result, end = operateLine(calc)
+        if result != None:
+            results.append(result)
+    return results
 
 if __name__ == "__main__":
 
-    with open('op.txt', 'r') as text:
-        print()
-        print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
-        print('//----Simple calculator program')
-        print()
-        calc = CalculadoraHija()
-        goodResult = operateLine(calc)
-        print()
-        print('Result is: ', goodResult)
-        print()
-        print()
+    file = sys.argv[1]
+    try:
+
+        with open(file, 'r') as text:
+            print()
+            print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
+            print('//----Simple calculator program. This time with CSVs in a text file')
+            print()
+            calc = CalculadoraHija()
+            results = operateFile(calc)
+            print()
+            print('Results are: ', results)
+            print()
+            print()
+
+    except FileNotFoundError:
+        print("File not found. Try again with another file name")
