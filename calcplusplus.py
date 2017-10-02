@@ -43,7 +43,7 @@ def Operations(opr, op1, op2, calc):
         result = calc.divided(op1, op2)
     else:
         print()
-        sys.exit('Error: Only suma, resta, multiplica or divide are allowed')
+        sys.exit('Error: Only suma, resta, multiplica or divide')
     return result
 
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         with open(file, 'r') as text:
             print()
             print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
-            print('//----Simple calculator program. This time with CSVs in a CSV file')
+            print('//----Simple calculator program. CSV file')
             print()
             calc = CalculadoraHija()
             results = operateFile(calc)

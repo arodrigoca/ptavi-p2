@@ -42,7 +42,7 @@ def Operate():
         result = calc.divided(sys.argv[1], sys.argv[3])
     else:
         print()
-        sys.exit('Error: Only suma, resta, multiplica or divide operations allowed')
+        sys.exit('Error: Only suma, resta, multiplica or divide')
     return result
 
 if __name__ == "__main__":
@@ -51,7 +51,6 @@ if __name__ == "__main__":
     print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
     print('//----Simple calculator program')
     print()
-    print('Input operator was: ' + str(sys.argv[2]) + ' and operands were: ' + str(sys.argv[1]) + ' and ' + str(sys.argv[3]))
     try:
         operand1 = int(sys.argv[1])
         operand2 = int(sys.argv[3])
