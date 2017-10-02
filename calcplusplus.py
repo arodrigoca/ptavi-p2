@@ -60,8 +60,7 @@ def getLine():
 def operateLine(calc):
 
     line = getLine()
-    print(line)
-    if line[0] != '':
+    if line != [] and  line[0] != '':
         for w in range(1,len(line)):
             if w + 1 < len(line):
                 if w == 1:
@@ -76,7 +75,6 @@ def operateLine(calc):
     else:
         end = True;
         result = None
-
     return (result, end)
 
 def operateFile(calc):
@@ -96,7 +94,7 @@ if __name__ == "__main__":
         with open(file, 'r') as text:
             print()
             print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
-            print('//----Simple calculator program. This time with CSVs in a text file')
+            print('//----Simple calculator program. This time with CSVs in a CSV file')
             print()
             calc = CalculadoraHija()
             results = operateFile(calc)
