@@ -4,6 +4,7 @@
 import sys
 import csv
 
+
 class Calculator ():
 
     def __init__(self):
@@ -15,9 +16,11 @@ class Calculator ():
     def minus(self, oper1, oper2):
         return int(oper1) - int(oper2)
 
+
 class CalculadoraHija(Calculator):
     def __init__(self):
         pass
+
     def times(self, oper1, oper2):
         return int(oper1)*int(oper2)
 
@@ -27,27 +30,24 @@ class CalculadoraHija(Calculator):
         except:
             sys.exit("Error: Division by zero is not allowed")
 
-#If   this is executed on his own, do this:
 
 def Operations(opr, op1, op2, calc):
 
     if opr == 'suma':
-        result = calc.plus(op1,op2)
+        result = calc.plus(op1, op2)
     elif opr == 'resta':
-        result = calc.minus(op1,op2)
+        result = calc.minus(op1, op2)
     elif opr == 'multiplica':
-        result = calc.times(op1,op2)
+        result = calc.times(op1, op2)
     elif opr == 'divide':
-        result = calc.divided(op1,op2)
+        result = calc.divided(op1, op2)
     else:
         print()
-        sys.exit('Error: Only Add, Substract, Multiply or Divide operations are allowed')
+        sys.exit('Error: Only suma, resta, multiplica or divide are allowed')
     return result
 
 
-
 def getLine():
-
 
     reader = csv.reader(text)
     dataList = []
@@ -60,8 +60,8 @@ def getLine():
 def operateLine(calc):
 
     line = getLine()
-    if line != [] and  line[0] != '':
-        for w in range(1,len(line)):
+    if line != [] and line[0] != '':
+        for w in range(1, len(line)):
             if w + 1 < len(line):
                 if w == 1:
                     opr = line[0]
@@ -73,17 +73,18 @@ def operateLine(calc):
                     result = Operations(opr, result, op2, calc)
         end = False
     else:
-        end = True;
+        end = True
         result = None
     return (result, end)
+
 
 def operateFile(calc):
 
     end = False
     results = []
-    while end == False:
+    while not end:
         result, end = operateLine(calc)
-        if result != None:
+        if result is not None:
             results.append(result)
     return results
 

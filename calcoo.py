@@ -3,7 +3,8 @@
 
 import sys
 
-class Calculator ():
+
+class Calculadora ():
 
     def __init__(self):
         pass
@@ -14,19 +15,17 @@ class Calculator ():
     def minus(self, oper1, oper2):
         return int(oper1) - int(oper2)
 
-#If   this is executed on his own, do this:
 
 def Operate():
 
     if sys.argv[2] == 'suma':
-        result = calc.plus(sys.argv[1],sys.argv[3])
+        result = calc.plus(sys.argv[1], sys.argv[3])
     elif sys.argv[2] == 'resta':
-        result = calc.minus(sys.argv[1],sys.argv[3])
+        result = calc.minus(sys.argv[1], sys.argv[3])
     else:
         print()
-        sys.exit('Error: Only Suma or Resta operations are allowed')
+        sys.exit('Error: Only suma or resta operations are allowed')
     return result
-
 
 
 if __name__ == "__main__":
@@ -43,7 +42,7 @@ if __name__ == "__main__":
         print()
         sys.exit('Error: operands must be integer numbers')
 
-    calc = Calculator()
+    calc = Calculadora()
     result = Operate()
     print()
     print('Result is: ' + str(result))

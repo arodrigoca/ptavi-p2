@@ -3,7 +3,8 @@
 
 import sys
 
-class Calculator ():
+
+class Calculadora ():
 
     def __init__(self):
         pass
@@ -14,9 +15,11 @@ class Calculator ():
     def minus(self, oper1, oper2):
         return int(oper1) - int(oper2)
 
-class CalculadoraHija(Calculator):
+
+class CalculadoraHija(Calculadora):
     def __init__(self):
         pass
+
     def times(self, oper1, oper2):
         return int(oper1)*int(oper2)
 
@@ -26,24 +29,21 @@ class CalculadoraHija(Calculator):
         except:
             sys.exit("Error: Division by zero is not allowed")
 
-#If   this is executed on his own, do this:
 
 def Operate():
 
     if sys.argv[2] == 'suma':
-        result = calc.plus(sys.argv[1],sys.argv[3])
+        result = calc.plus(sys.argv[1], sys.argv[3])
     elif sys.argv[2] == 'resta':
-        result = calc.minus(sys.argv[1],sys.argv[3])
+        result = calc.minus(sys.argv[1], sys.argv[3])
     elif sys.argv[2] == 'multiplica':
-        result = calc.times(sys.argv[1],sys.argv[3])
+        result = calc.times(sys.argv[1], sys.argv[3])
     elif sys.argv[2] == 'divide':
-        result = calc.divided(sys.argv[1],sys.argv[3])
+        result = calc.divided(sys.argv[1], sys.argv[3])
     else:
         print()
-        sys.exit('Error: Only Add, Substract, Multiply or Divide operations are allowed')
+        sys.exit('Error: Only suma, resta, multiplica or divide operations allowed')
     return result
-
-
 
 if __name__ == "__main__":
 
