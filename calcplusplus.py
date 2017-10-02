@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import csv
 
 class Calculator ():
 
@@ -47,20 +48,23 @@ def Operations(opr, op1, op2, calc):
 
 def getLine():
 
-    data = text.readline()
-    data = data.rstrip('\n')
-    dataList = data.split(',')
 
+    reader = csv.reader(text)
+    dataList = []
+    for row in reader:
+        dataList = row
+        break
     return dataList
 
 
 def operateLine(calc):
 
     line = getLine()
+    print(line)
     if line[0] != '':
         for w in range(1,len(line)):
             if w + 1 < len(line):
-                if w == 1:    
+                if w == 1:
                     opr = line[0]
                     op1 = line[w]
                     op2 = line[w+1]
@@ -79,7 +83,6 @@ def operateFile(calc):
 
     end = False
     results = []
-
     while end == False:
         result, end = operateLine(calc)
         if result != None:
@@ -88,9 +91,8 @@ def operateFile(calc):
 
 if __name__ == "__main__":
 
-    file = sys.argv[1]
     try:
-
+        file = sys.argv[1]
         with open(file, 'r') as text:
             print()
             print('//----Adrián Rodrigo Castillo, 3o ISAM URJC-------')
